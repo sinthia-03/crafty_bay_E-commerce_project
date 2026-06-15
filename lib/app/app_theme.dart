@@ -1,0 +1,23 @@
+import 'package:crafty_bay/app/app_colors.dart';
+import 'package:flutter/material.dart';
+
+
+class AppTheme {
+  static ThemeData get lightTheme =>_lightThemeData;
+  static ThemeData get darkTheme =>_darkThemeData;
+
+  static ThemeData _lightThemeData = ThemeData(
+    colorSchemeSeed: AppColors.themeColor,
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: AppColors.themeColor
+      ),
+    scaffoldBackgroundColor: Colors.white
+      );
+
+  static ThemeData _darkThemeData = ThemeData(
+      colorSchemeSeed: AppColors.themeColor,
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+          color: AppColors.themeColor
+      )
+  );
+}
