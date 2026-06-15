@@ -1,5 +1,6 @@
 import 'package:crafty_bay/app/asset_paths.dart';
 import 'package:crafty_bay/app/providers/theme_mode_provider.dart';
+import 'package:crafty_bay/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
           Column(
             children: [
               CircularProgressIndicator(),
-              Text('version 1.0.0')
+              Text('${AppLocalizations.of(context)?.version} 1.0.0')
             ],
           ),
           const SizedBox(height: 16,)
