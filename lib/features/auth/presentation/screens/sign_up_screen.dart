@@ -15,7 +15,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _firstNamelTEController = TextEditingController();
   final TextEditingController _lastNameTEController = TextEditingController();
   final TextEditingController _cityTEController = TextEditingController();
-  final TextEditingController _phoneNumberTEController = TextEditingController();
+  final TextEditingController _phoneNumberTEController =
+      TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
@@ -31,7 +32,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Form(
                 key: _formkey,
                 autovalidateMode: .onUserInteraction,
-                onChanged: (){},
+                onChanged: () {},
                 child: Column(
                   children: [
                     const SizedBox(height: 16),
@@ -44,44 +45,49 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 16),
                     TextFormField(
-                        controller: _emailTEController,
-                        textInputAction: .next,
-                        keyboardType: .emailAddress,
-                        decoration: InputDecoration(
-                          labelText: context.localization.email,
-                          hintText: context.localization.email,
-                        ),
-                        validator: (String? value)=> Validators.validateEmail(value)
+                      controller: _emailTEController,
+                      textInputAction: .next,
+                      keyboardType: .emailAddress,
+                      decoration: InputDecoration(
+                        labelText: context.localization.email,
+                        hintText: context.localization.email,
+                      ),
+                      validator: (String? value) =>
+                          Validators.validateEmail(value),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
                       controller: _firstNamelTEController,
-                        decoration: InputDecoration(
-                          labelText: context.localization.firstName,
-                          hintText: context.localization.firstName,
-                        ),
-                      validator: (String? value) =>
-                      Validators.validateInput(value,'Enter Your first name'),
+                      decoration: InputDecoration(
+                        labelText: context.localization.firstName,
+                        hintText: context.localization.firstName,
+                      ),
+                      validator: (String? value) => Validators.validateInput(
+                        value,
+                        'Enter Your first name',
+                      ),
                     ),
                     SizedBox(height: 8),
                     TextFormField(
                       controller: _lastNameTEController,
-                        decoration: InputDecoration(
-                          labelText: context.localization.lastName,
-                          hintText: context.localization.lastName,
-                        ),
-                      validator: (String? value) =>
-                          Validators.validateInput(value,'Enter Your last name'),
+                      decoration: InputDecoration(
+                        labelText: context.localization.lastName,
+                        hintText: context.localization.lastName,
+                      ),
+                      validator: (String? value) => Validators.validateInput(
+                        value,
+                        'Enter Your last name',
+                      ),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
                       controller: _cityTEController,
-                        decoration: InputDecoration(
-                          labelText: context.localization.city,
-                          hintText: context.localization.city,
-                        ),
+                      decoration: InputDecoration(
+                        labelText: context.localization.city,
+                        hintText: context.localization.city,
+                      ),
                       validator: (String? value) =>
-                          Validators.validateInput(value,'Enter Your city'),
+                          Validators.validateInput(value, 'Enter Your city'),
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
@@ -90,16 +96,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         labelText: context.localization.phoneNumber,
                         hintText: context.localization.phoneNumber,
                       ),
-                      validator: (String? value) =>
-                          Validators.validateInput(value,'Enter Your phone number'),
+                      validator: (String? value) => Validators.validateInput(
+                        value,
+                        'Enter Your phone number',
+                      ),
                     ),
+                    const SizedBox(height: 8),
                     TextFormField(
                       controller: _passwordTEController,
-                        decoration: InputDecoration(
-                          labelText: context.localization.password,
-                          hintText: context.localization.password,
-                        ),
-                        validator: (input)=> Validators.validatePassword(input)
+                      decoration: InputDecoration(
+                        labelText: context.localization.password,
+                        hintText: context.localization.password,
+                      ),
+                      validator: (input) => Validators.validatePassword(input),
                     ),
                     SizedBox(height: 8),
                     FilledButton(
@@ -126,11 +135,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _onTapSignUpButton() {
-if(_formkey.currentState!.validate()){
-  //TODO: sign in api
-}
-
+    if (_formkey.currentState!.validate()) {
+      //TODO: sign in api
+    }
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
