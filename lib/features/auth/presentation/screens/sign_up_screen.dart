@@ -1,4 +1,5 @@
 import 'package:crafty_bay/app/extension/localization_extension.dart';
+import 'package:crafty_bay/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widgets/app_logo.dart';
 import 'package:crafty_bay/features/shared/presentation/utlitis/validators.dart';
 import 'package:flutter/material.dart';
@@ -135,9 +136,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _onTapSignUpButton() {
-    if (_formkey.currentState!.validate()) {
-      //TODO: sign in api
-    }
+    // if (_formkey.currentState!.validate()) {
+    //   //TODO: sign in api
+    // }
+    Navigator.pushNamed(context, VerifyOtpScreen.name);
   }
 
   @override
