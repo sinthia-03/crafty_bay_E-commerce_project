@@ -12,6 +12,10 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailTEController = TextEditingController();
+  final TextEditingController _firstNamelTEController = TextEditingController();
+  final TextEditingController _lastNameTEController = TextEditingController();
+  final TextEditingController _cityTEController = TextEditingController();
+  final TextEditingController _phoneNumberTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
@@ -51,6 +55,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
+                      controller: _firstNamelTEController,
                         decoration: InputDecoration(
                           labelText: context.localization.firstName,
                           hintText: context.localization.firstName,
@@ -60,6 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     SizedBox(height: 8),
                     TextFormField(
+                      controller: _lastNameTEController,
                         decoration: InputDecoration(
                           labelText: context.localization.lastName,
                           hintText: context.localization.lastName,
@@ -69,15 +75,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
-                      decoration: InputDecoration(
-                        labelText: context.localization.phoneNumber,
-                        hintText: context.localization.phoneNumber,
-                      ),
-                      validator: (String? value) =>
-                          Validators.validateInput(value,'Enter Your phone number'),
-                    ),
-                    const SizedBox(height: 8),
-                    TextFormField(
+                      controller: _cityTEController,
                         decoration: InputDecoration(
                           labelText: context.localization.city,
                           hintText: context.localization.city,
@@ -87,6 +85,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     const SizedBox(height: 8),
                     TextFormField(
+                      controller: _phoneNumberTEController,
+                      decoration: InputDecoration(
+                        labelText: context.localization.phoneNumber,
+                        hintText: context.localization.phoneNumber,
+                      ),
+                      validator: (String? value) =>
+                          Validators.validateInput(value,'Enter Your phone number'),
+                    ),
+                    TextFormField(
+                      controller: _passwordTEController,
                         decoration: InputDecoration(
                           labelText: context.localization.password,
                           hintText: context.localization.password,
@@ -129,5 +137,9 @@ if(_formkey.currentState!.validate()){
     super.dispose();
     _passwordTEController.dispose();
     _emailTEController.dispose();
+    _firstNamelTEController.dispose();
+    _lastNameTEController.dispose();
+    _cityTEController.dispose();
+    _phoneNumberTEController.dispose();
   }
 }
