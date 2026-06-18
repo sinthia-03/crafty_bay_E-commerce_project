@@ -5,7 +5,6 @@ import '../widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
   static const String name = '/splash';
 
   @override
@@ -13,18 +12,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _navigateToNextScreen();
   }
+
  Future <void> _navigateToNextScreen()async{
     await Future.delayed(Duration(seconds: 2));
     Navigator.pushReplacementNamed(context, SignInScreen.name);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

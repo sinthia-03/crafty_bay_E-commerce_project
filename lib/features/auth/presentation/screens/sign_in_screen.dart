@@ -1,4 +1,5 @@
 import 'package:crafty_bay/app/extension/localization_extension.dart';
+import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widgets/app_logo.dart';
 import 'package:crafty_bay/features/shared/presentation/utlitis/validators.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +88,10 @@ class _SignInScreenState extends State<SignInScreen> {
 
   }
 
-  void _onTapSignUpButton() {}
+  void _onTapSignUpButton() {
+    Navigator.pushNamed(context, SignUpScreen.name);
+    
+  }
   @override
   void dispose() {
     // TODO: implement dispose

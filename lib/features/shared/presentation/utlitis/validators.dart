@@ -7,14 +7,12 @@ class Validators {
     }
     return null;
   }
-
    static String? validateEmail(String? input) {
     if (EmailValidator.validate(input ?? '') == false) {
       return 'Enter a valid email address';
     }
     return null;
   }
-
  static String? validatePassword(String? input) {
     if ((input ?? '').length < 6) {
       return 'Enter a password more then 5 letter';

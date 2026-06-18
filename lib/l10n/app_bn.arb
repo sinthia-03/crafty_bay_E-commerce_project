@@ -1,5 +1,8 @@
 {
   "version": "সংস্করণ",
   "email": "Email bn",
-  "password": "password"
+  "password": "password",
+  "firstName": "প্রথম নাম",
+  "city": "শহর",
+  "phoneNumber": "ফোন নম্বর"
 }
