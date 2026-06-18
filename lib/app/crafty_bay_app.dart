@@ -3,6 +3,7 @@ import 'package:crafty_bay/app/providers/locale_provider.dart';
 import 'package:crafty_bay/app/providers/theme_mode_provider.dart';
 import 'package:crafty_bay/app/routes.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/splash_screen.dart';
+import 'package:crafty_bay/features/shared/presentation/presentation/providers/main_nav_holder_provider.dart';
 import 'package:crafty_bay/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,6 +23,7 @@ class _CraftyBayAppState extends State<CraftyBayApp> {
   final LocaleProvider _localeProvider = LocaleProvider();
 
 
+
   @override
   void initState() {
     // TODO: implement initState
@@ -35,7 +37,9 @@ class _CraftyBayAppState extends State<CraftyBayApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: _themeModeProvider),
-    ChangeNotifierProvider.value(value: _localeProvider)
+    ChangeNotifierProvider.value(value: _localeProvider),
+
+    ChangeNotifierProvider(create: (_) => MainNavHolderProvider()),
       ],
       child:Consumer <LocaleProvider>(
         builder: (context, localeProvider, _) {
