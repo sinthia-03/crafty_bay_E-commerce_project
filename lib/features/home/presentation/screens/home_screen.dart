@@ -1,3 +1,6 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:crafty_bay/app/app_colors.dart';
+import 'package:crafty_bay/features/home/presentation/widgets/home_carousel_slider.dart';
 import 'package:crafty_bay/features/home/presentation/widgets/product_search_bar.dart';
 import 'package:flutter/material.dart';
 import '../widgets/home_app_bar.dart';
@@ -18,8 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const .all(16),
         child: SingleChildScrollView(
           child: Column(
+            spacing:8,
             children: [
               ProductSearchBar(),
+              HomeCarouselSlider()
+
 
             ],
             
