@@ -8,4 +8,8 @@ void changeIndex(int index){
   _currentIndex = index;
   notifyListeners();
 }
+
+void backToHome(){
+  changeIndex(0);
+}
 }

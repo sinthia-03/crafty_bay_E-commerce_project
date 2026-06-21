@@ -12,7 +12,6 @@ class HomeCarouselSlider extends StatefulWidget {
 }
 
 class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
-
   final ValueNotifier<int> _selectedIndex = ValueNotifier(0);
   @override
   Widget build(BuildContext context) {
@@ -20,10 +19,13 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
       spacing: 8,
       children: [
         CarouselSlider(
-          options: CarouselOptions(height: 180.0,
-              viewportFraction: 1,onPageChanged: (index,  _){
-            _selectedIndex.value = index;
-              }
+          options: CarouselOptions(
+            height: 180.0,
+            viewportFraction: 1,
+            autoPlay: true,
+            onPageChanged: (index, _) {
+              _selectedIndex.value = index;
+            },
           ),
           items: [1, 2, 3, 4, 5].map((i) {
             return Builder(
@@ -40,7 +42,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
           }).toList(),
         ),
         ValueListenableBuilder(
-          valueListenable:  _selectedIndex,
+          valueListenable: _selectedIndex,
           builder: (context, index, _) {
             return Row(
               mainAxisAlignment: .center,
@@ -52,12 +54,14 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                     margin: .only(right: 2),
                     decoration: BoxDecoration(
                       borderRadius: .circular(10),
-                      color: i == index ? AppColors.themeColor : Colors.grey.shade300
+                      color: i == index
+                          ? AppColors.themeColor
+                          : Colors.grey.shade300,
                     ),
                   ),
               ],
             );
-          }
+          },
         ),
       ],
     );

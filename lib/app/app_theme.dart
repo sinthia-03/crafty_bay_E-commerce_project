@@ -13,11 +13,17 @@ class AppTheme {
     scaffoldBackgroundColor: Colors.white,
     textTheme: TextTheme(
       titleLarge: TextStyle(fontSize: 24, fontWeight: .w600),
+      titleMedium: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),
       labelLarge: TextStyle(color: Colors.grey, fontWeight: .w400),
     ),
 
     inputDecorationTheme: _inputDecorationTheme,
     filledButtonTheme: _filledButtonTheme,
+    appBarTheme: AppBarTheme(backgroundColor: Colors.white,titleTextStyle: TextStyle(
+      fontSize: 16,
+      color: Colors.black,
+      fontWeight: .w600
+    ),)
   );
 
   static final ThemeData _darkThemeData = ThemeData(
