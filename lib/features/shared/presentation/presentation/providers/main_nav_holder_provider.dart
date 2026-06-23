@@ -12,4 +12,7 @@ void changeIndex(int index){
 void backToHome(){
   changeIndex(0);
 }
+void navigateToCategory(){
+  changeIndex(1);
+}
 }

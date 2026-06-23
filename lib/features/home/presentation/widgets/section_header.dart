@@ -17,7 +17,7 @@ class SectionHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: .spaceBetween,
       children: [
-        Text('Category', style: textTheme.titleMedium,),
+        Text(headerText, style: textTheme.titleMedium,),
         TextButton(onPressed: (){},
             child: Text('See All',style: TextStyle(fontWeight: .w600),))
       ],
