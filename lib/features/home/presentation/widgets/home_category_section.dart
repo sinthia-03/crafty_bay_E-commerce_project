@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../app/app_colors.dart';
 import '../../../shared/presentation/widgets/category_card.dart';
 
 class HomeCategorySection extends StatelessWidget {
   const HomeCategorySection({super.key});
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,7 +14,7 @@ class HomeCategorySection extends StatelessWidget {
         itemBuilder: (context, index){
           return CategoryCard();
         },
-        separatorBuilder: (_,_)=>SizedBox(width: 8,),
+        separatorBuilder: (_,_)=>SizedBox(width: 8),
       ),
     );
   }
