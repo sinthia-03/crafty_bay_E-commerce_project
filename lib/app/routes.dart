@@ -27,7 +27,7 @@ class AppRoutes{
       case ProductListByCategoryscreen.name:
         Map<String, dynamic> args = settings.arguments as Map<String,dynamic>;
 
-        widget = ProductListByCategoryscreen(
+        widget = ProductListByCategoryscreen( // categoryscreen
           catrgotriId: args['categoryId'],
           categoryName: args['categoryName'],
         );

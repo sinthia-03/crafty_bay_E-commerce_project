@@ -11,7 +11,7 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return GestureDetector( // category
       onTap: (){
         Navigator.pushNamed(context, ProductListByCategoryscreen.name, arguments: {
           'categoryId': 'ffggh-sjdfhf-dd',
