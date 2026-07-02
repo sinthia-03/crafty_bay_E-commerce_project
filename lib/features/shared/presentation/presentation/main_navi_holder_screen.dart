@@ -37,7 +37,6 @@ class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
             showSelectedLabels: true,
             showUnselectedLabels: true,
             onTap: mainNameHolderProvider.changeIndex, // method signature
-
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(

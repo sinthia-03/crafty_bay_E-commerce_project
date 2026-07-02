@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../../app/providers/theme_mode_provider.dart';
 
 class ThemeToggle extends StatefulWidget {
