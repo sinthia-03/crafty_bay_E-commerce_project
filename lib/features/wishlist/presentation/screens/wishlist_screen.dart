@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../shared/presentation/presentation/providers/main_nav_holder_provider.dart';
+import '../../../shared/presentation/widgets/product_card.dart';
 
 class WishlistScreen extends StatefulWidget {
   const WishlistScreen({super.key});
@@ -19,23 +19,24 @@ class _WishlistScreenState extends State<WishlistScreen> {
       onPopInvokedWithResult: (_, _) => _backToHome(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Wishlist'),
+          title: const Text('Wishlist'),
           leading: IconButton(
             onPressed: _backToHome,
             icon: Icon(Icons.arrow_back_ios),
           ),
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return ;
-                },
-              ),
-            ),
-          ],
+        body: GridView.builder(
+          itemCount: 12,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 4,
+          ),
+          itemBuilder: (context, index) {
+            return const FittedBox(
+              child: ProductCard(),
+            );
+          },
         ),
       ),
     );

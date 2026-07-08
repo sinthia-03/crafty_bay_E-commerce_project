@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../app/app_colors.dart';
 import '../../../../app/asset_paths.dart';
 
@@ -8,7 +7,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = TextTheme.of(context);
 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: .circular(8)),
