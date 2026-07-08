@@ -1,7 +1,9 @@
 import 'package:crafty_bay/app/app_colors.dart';
+import 'package:crafty_bay/features/card/presentation/screens/cart_screen.dart';
 import 'package:crafty_bay/features/category/category_screen.dart';
 import 'package:crafty_bay/features/home/presentation/screens/home_screen.dart';
 import 'package:crafty_bay/features/shared/presentation/presentation/providers/main_nav_holder_provider.dart';
+import 'package:crafty_bay/features/wishlist/presentation/screens/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,9 +20,9 @@ class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
 
   final List<Widget> _screens = [
     HomeScreen(),
-  CategoryScreen(),
-  HomeScreen(),
-  HomeScreen()
+    CategoryScreen(),
+    CartScreen(),
+    WishlistScreen(),
 
   ];
 
@@ -38,7 +40,8 @@ class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
             showUnselectedLabels: true,
             onTap: mainNameHolderProvider.changeIndex, // method signature
             items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+              BottomNavigationBarItem(icon: Icon(Icons.home),
+                  label: 'Home'),
               BottomNavigationBarItem(
                 icon: Icon(Icons.dashboard),
                 label: 'Category',

@@ -8,7 +8,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = TextTheme.of(context);
+    final textTheme = Theme.of(context).textTheme;
 
     return Card(
       shape: RoundedRectangleBorder(borderRadius: .circular(8)),
