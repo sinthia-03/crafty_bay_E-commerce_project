@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
 
+part 'network_restponse.dart';
+
 class NetworkCaller {
   final Logger _logger = Logger();
 
@@ -116,17 +118,4 @@ class NetworkCaller {
   }
 }
 
-class NetworkResponse {
-  // custom object
-  final bool isSuccess;
-  final int statusCode;
-  final dynamic body;
-  final String? errorMessage;
 
-  NetworkResponse({
-    required this.isSuccess,
-    required this.statusCode,
-    this.body,
-    this.errorMessage,
-  });
-}
