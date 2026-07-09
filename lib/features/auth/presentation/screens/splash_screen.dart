@@ -1,7 +1,7 @@
 import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:crafty_bay/features/shared/presentation/presentation/main_navi_holder_screen.dart';
 import 'package:crafty_bay/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import '../../../shared/presentation/screens/main_navi_holder_screen.dart';
 import '../widgets/app_logo.dart';
 
 class SplashScreen extends StatefulWidget {

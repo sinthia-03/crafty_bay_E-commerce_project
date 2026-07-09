@@ -4,7 +4,7 @@ import 'package:crafty_bay/features/auth/presentation/screens/splash_screen.dart
 import 'package:crafty_bay/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:crafty_bay/features/products/presentation/screen/product_details_screen.dart';
 import 'package:crafty_bay/features/products/presentation/screen/product_list_by_categoryScreen.dart';
-import 'package:crafty_bay/features/shared/presentation/presentation/main_navi_holder_screen.dart';
+import 'package:crafty_bay/features/shared/presentation/screens/main_navi_holder_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes{

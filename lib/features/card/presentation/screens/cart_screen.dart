@@ -1,7 +1,8 @@
-import 'package:crafty_bay/features/shared/presentation/presentation/providers/main_nav_holder_provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../shared/presentation/providers/main_nav_holder_provider.dart';
 import '../widget/card_item.dart';
 import '../widget/total_price_and_checkout_scetion.dart';
 

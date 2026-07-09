@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../shared/presentation/presentation/providers/main_nav_holder_provider.dart';
+import '../../../shared/presentation/providers/main_nav_holder_provider.dart';
 import '../../../shared/presentation/widgets/product_card.dart';
 
 class WishlistScreen extends StatefulWidget {

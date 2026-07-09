@@ -1,9 +1,9 @@
 import 'package:crafty_bay/features/home/presentation/widgets/home_carousel_slider.dart';
 import 'package:crafty_bay/features/home/presentation/widgets/home_category_section.dart';
 import 'package:crafty_bay/features/home/presentation/widgets/product_search_bar.dart';
-import 'package:crafty_bay/features/shared/presentation/presentation/providers/main_nav_holder_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../shared/presentation/providers/main_nav_holder_provider.dart';
 import '../../../shared/presentation/widgets/product_card.dart';
 import '../widgets/home_app_bar.dart';
 import '../widgets/section_header.dart';
