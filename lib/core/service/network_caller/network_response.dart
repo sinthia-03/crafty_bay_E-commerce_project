@@ -12,4 +12,12 @@ class NetworkResponse {
     this.body,
     this.errorMessage,
   });
+
+/// Uses
+// NetworkResponse response = await getNetworkCaller().getRequest('url');
+// if (response.isSuccess) {
+//
+// } else {
+// response.errorMessage!
+// }
 }

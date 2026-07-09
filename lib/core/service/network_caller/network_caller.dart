@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:http/http.dart';
 import 'package:logger/logger.dart';
-
-part 'network_restponse.dart';
+part 'network_response.dart';
 
 class NetworkCaller {
   final Logger _logger = Logger();
 
-  late final Map<String, String> Function() headers;
+
+  late final Map<String, String> Function() headers; // method return type dite hobe
+
   NetworkCaller({required this.headers});
 
   //get
