@@ -1,4 +1,5 @@
 import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/presentation/screens/main_navi_holder_screen.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 2));
     Navigator.pushReplacementNamed(context, MainNaviHolderScreen.name);
     Navigator.pushNamedAndRemoveUntil(context,
-        MainNaviHolderScreen.name, (predicate)=> false);
+        SignUpScreen.name, (predicate)=> false);
   }
 
   @override

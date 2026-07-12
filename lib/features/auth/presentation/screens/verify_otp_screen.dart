@@ -2,7 +2,7 @@ import 'package:crafty_bay/app/app_colors.dart';
 import 'package:crafty_bay/app/extension/localization_extension.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widgets/app_logo.dart';
-import 'package:crafty_bay/features/shared/presentation/providers/otp_timer_provider.dart';
+import 'package:crafty_bay/features/auth/presentation/providers/otp_timer_provider.dart';
 import 'package:crafty_bay/features/shared/presentation/utlitis/validators.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
