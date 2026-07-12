@@ -8,15 +8,12 @@ class SignUpProviders extends ChangeNotifier {
   bool _signUpInInProgress = false;
 
   bool get SignUpInInProgress => _signUpInInProgress;
-
   String? _errorMessage;
   String? get errorMeaasge => _errorMessage;
-
   Future<bool> signUp(SignUpParame params) async {
     bool isSuccess = false;
     _signUpInInProgress = true;
     notifyListeners();
-
     final NetworkResponse response = await getNetworkcaller().postRequest(
       Urls.signUpUrl,
       body: params.toJson(),

@@ -1,10 +1,16 @@
+import 'dart:math';
+
 import 'package:crafty_bay/app/extension/localization_extension.dart';
+import 'package:crafty_bay/features/auth/data/models/sign_up_parame.dart';
 import 'package:crafty_bay/features/auth/presentation/providers/sign_up_providers.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widgets/app_logo.dart';
 import 'package:crafty_bay/features/shared/presentation/utlitis/validators.dart';
+import 'package:crafty_bay/features/shared/presentation/widgets/snack_bar_message.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../shared/presentation/widgets/center_progress_indicator.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -24,7 +30,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
-final SignUpProviders _signUpProviders = SignUpProviders();
+  final SignUpProviders _signUpProviders = SignUpProviders();
+
+  bool _enableButton = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,7 @@ final SignUpProviders _signUpProviders = SignUpProviders();
                 child: Form(
                   key: _formkey,
                   autovalidateMode: .onUserInteraction,
-                  onChanged: () {},
+                  onChanged: _checkIfFromValid,
                   child: Column(
                     children: [
                       const SizedBox(height: 16),
@@ -116,12 +124,27 @@ final SignUpProviders _signUpProviders = SignUpProviders();
                           labelText: context.localization.password,
                           hintText: context.localization.password,
                         ),
-                        validator: (input) => Validators.validatePassword(input),
+                        validator: (input) =>
+                            Validators.validatePassword(input),
                       ),
                       SizedBox(height: 8),
-                      FilledButton(
-                        onPressed: _onTapSignUpButton,
-                        child: Text('Sign Up'),
+                      Consumer<SignUpProviders>(
+                        builder: (context, _, _) {
+                          if (_signUpProviders.SignUpInInProgress) {
+                            return CenterProgressindicator();
+                          }
+                          return FilledButton(
+                            style: FilledButton.styleFrom(
+                              backgroundColor: _enableButton == false
+                                  ? Colors.grey
+                                  : null,
+                            ),
+                            onPressed: _enableButton
+                                ? _onTapSignUpButton
+                                : null,
+                            child: Text('Sign Up'),
+                          );
+                        },
                       ),
                       const SizedBox(height: 16),
                       TextButton(
@@ -143,16 +166,40 @@ final SignUpProviders _signUpProviders = SignUpProviders();
     Navigator.pop(context);
   }
 
+  void _checkIfFromValid() {
+    if (_formkey.currentState!.validate()) {
+      _enableButton = true;
+    } else {
+      _enableButton = false;
+    }
+    setState(() {});
+  }
+
   void _onTapSignUpButton() {
-    if(_formkey.currentState!.validate()){
+    if (_formkey.currentState!.validate()) {
       _signUp();
     }
     //Navigator.pushNamed(context, VerifyOtpScreen.name);
   }
 
-  Future<void> _signUp()async{
-
+  Future<void> _signUp() async {
+    SignUpParame params = SignUpParame(
+      email: _emailTEController.text.trim(),
+      firstName: _firstNamelTEController.text
+          .trim(), // faka space falai doyar jonno trim use hoy
+      lastName: _lastNameTEController.text.trim(),
+      city: _cityTEController.text.trim(),
+      phone: _phoneNumberTEController.text.trim(),
+      password: _passwordTEController.text,
+    );
+    final bool isSuccess = await _signUpProviders.signUp(params);
+    if (isSuccess) {
+      Navigator.pushNamed(context, VerifyOtpScreen.name);
+    } else {
+      showSnackBarMessage(context, _signUpProviders.errorMeaasge!);
+    }
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
