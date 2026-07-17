@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:crafty_bay/app/extension/localization_extension.dart';
 import 'package:crafty_bay/features/auth/data/models/sign_up_parame.dart';
+import 'package:crafty_bay/features/auth/presentation/providers/sign_in_provider.dart';
 import 'package:crafty_bay/features/auth/presentation/providers/sign_up_providers.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/widgets/app_logo.dart';
