@@ -1,3 +1,4 @@
+import 'package:crafty_bay/features/auth/presentation/providers/auth_controller.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
 import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/l10n/app_localizations.dart';
@@ -23,9 +24,12 @@ class _SplashScreenState extends State<SplashScreen> {
 
  Future <void> _navigateToNextScreen()async{
     await Future.delayed(Duration(seconds: 2));
-    Navigator.pushReplacementNamed(context, MainNaviHolderScreen.name);
+
+    if(await AuthController.isLoggedIn()){
+      await AuthController.getUserData();
+    }
     Navigator.pushNamedAndRemoveUntil(context,
-        SignUpScreen.name, (predicate)=> false);
+        MainNaviHolderScreen.name, (predicate)=> false);
   }
 
   @override

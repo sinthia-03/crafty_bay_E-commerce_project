@@ -23,7 +23,7 @@ class UserModel {
     required this.email,
     required this.city,
   });
-
+//jeson - object conversion
   factory UserModel.fromJson(Map<String, dynamic> jsonData) {
     return UserModel(
       city: jsonData['city'],
@@ -33,4 +33,14 @@ class UserModel {
       id: jsonData['_id'],
     );
   }
+  // object-json
+Map<String, dynamic> toJson(){
+    return{
+      'email': email,
+      'city':city,
+      'first_name':firstName,
+      'last_name':lastName,
+      '_id':id
+    };
+}
 }
