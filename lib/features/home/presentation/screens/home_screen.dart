@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   if(homeSliderProvider.getSlidersInProgress){
                     return  SizedBox(
                       height: 180,
-                        child: CircularProgressIndicator());
+                        child: Center(child: CircularProgressIndicator()));
                   }
                   return HomeCarouselSlider(
                     sliders:homeSliderProvider.sliders,
