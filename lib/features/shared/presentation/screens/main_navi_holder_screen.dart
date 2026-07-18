@@ -1,6 +1,7 @@
 import 'package:crafty_bay/app/app_colors.dart';
 import 'package:crafty_bay/features/card/presentation/screens/cart_screen.dart';
 import 'package:crafty_bay/features/category/category_screen.dart';
+import 'package:crafty_bay/features/home/presentation/providers/home_sliders_provider.dart';
 import 'package:crafty_bay/features/home/presentation/screens/home_screen.dart';
 import 'package:crafty_bay/features/wishlist/presentation/screens/wishlist_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class MainNaviHolderScreen extends StatefulWidget {
 
 class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
 
+
   final List<Widget> _screens = [
     HomeScreen(),
     CategoryScreen(),
@@ -27,38 +29,51 @@ class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
 
   ];
 
+  final HomeSlidersProvider _homeSlidersProvider = HomeSlidersProvider();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _homeSlidersProvider.getSliders();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<MainNavHolderProvider>(
-      builder: (context, mainNameHolderProvider, _) {
-        return Scaffold(
-          body: _screens[mainNameHolderProvider.currentIndex],
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: mainNameHolderProvider.currentIndex,
-            unselectedItemColor: Colors.grey,
-            selectedItemColor: AppColors.themeColor,
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
-            onTap: mainNameHolderProvider.changeIndex, // method signature
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home),
-                  label: 'Home'),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.dashboard),
-                label: 'Category',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_basket_outlined),
-                label: 'Cart',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_outline),
-                label: 'Wishlist',
-              ),
-            ],
-          ),
-        );
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(value:_homeSlidersProvider )
+      ],
+      child: Consumer<MainNavHolderProvider>(
+        builder: (context, mainNameHolderProvider, _) {
+          return Scaffold(
+            body: _screens[mainNameHolderProvider.currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: mainNameHolderProvider.currentIndex,
+              unselectedItemColor: Colors.grey,
+              selectedItemColor: AppColors.themeColor,
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              onTap: mainNameHolderProvider.changeIndex, // method signature
+              items: [
+                BottomNavigationBarItem(icon: Icon(Icons.home),
+                    label: 'Home'),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.dashboard),
+                  label: 'Category',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.shopping_basket_outlined),
+                  label: 'Cart',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite_outline),
+                  label: 'Wishlist',
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

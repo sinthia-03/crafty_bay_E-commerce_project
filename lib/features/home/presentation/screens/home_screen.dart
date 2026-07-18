@@ -1,3 +1,4 @@
+import 'package:crafty_bay/features/home/presentation/providers/home_sliders_provider.dart';
 import 'package:crafty_bay/features/home/presentation/widgets/home_carousel_slider.dart';
 import 'package:crafty_bay/features/home/presentation/widgets/home_category_section.dart';
 import 'package:crafty_bay/features/home/presentation/widgets/product_search_bar.dart';
@@ -18,7 +19,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final textTheme = TextTheme.of(context);
     return Scaffold(
       appBar: HomeAppBar(),
       body: Padding(
@@ -28,7 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
             spacing: 8,
             children: [
               ProductSearchBar(),
-              HomeCarouselSlider(),
+             Consumer<HomeSlidersProvider>(
+                builder: (context, homeSliderProvider, _) {
+                  if(homeSliderProvider.getSlidersInProgress){
+                    return  SizedBox(
+                      height: 180,
+                        child: CircularProgressIndicator());
+                  }
+                  return HomeCarouselSlider(
+                    sliders:homeSliderProvider.sliders,
+                  );
+                }
+              ),
               SectionHeader(
                 headerText: 'Category',
                 onTapSeeAll: () {
