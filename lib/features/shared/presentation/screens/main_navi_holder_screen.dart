@@ -1,6 +1,7 @@
 import 'package:crafty_bay/app/app_colors.dart';
 import 'package:crafty_bay/features/card/presentation/screens/cart_screen.dart';
 import 'package:crafty_bay/features/category/category_screen.dart';
+import 'package:crafty_bay/features/category/presentation/category_list_provider.dart';
 import 'package:crafty_bay/features/home/presentation/providers/home_sliders_provider.dart';
 import 'package:crafty_bay/features/home/presentation/screens/home_screen.dart';
 import 'package:crafty_bay/features/wishlist/presentation/screens/wishlist_screen.dart';
@@ -16,6 +17,8 @@ class MainNaviHolderScreen extends StatefulWidget {
 
   @override
   State<MainNaviHolderScreen> createState() => _MainNaviHolderScreenState();
+
+
 }
 
 class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
@@ -30,18 +33,22 @@ class _MainNaviHolderScreenState extends State<MainNaviHolderScreen> {
   ];
 
   final HomeSlidersProvider _homeSlidersProvider = HomeSlidersProvider();
+final CategoryListProvider _categoryListProvider = CategoryListProvider();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _homeSlidersProvider.getSliders();
+    _categoryListProvider.getCategoryData();
   }
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider.value(value:_homeSlidersProvider )
+        ChangeNotifierProvider.value(value:_homeSlidersProvider ),
+        ChangeNotifierProvider.value(value: _categoryListProvider),
       ],
       child: Consumer<MainNavHolderProvider>(
         builder: (context, mainNameHolderProvider, _) {
