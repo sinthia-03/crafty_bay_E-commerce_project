@@ -20,7 +20,7 @@ class CardItem extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Image.asset(AssetPaths.dummyImage,width: 100,),
+          //  child: Image.asset(AssetPaths.dummyImage,width: 100,),
           ),
           Expanded(
             child: Padding(
