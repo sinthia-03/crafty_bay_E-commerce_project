@@ -6,7 +6,6 @@ import '../../../../app/urls.dart';
 import '../../../../core/service/network_caller/network_caller.dart';
 
 class ProductListProvider extends ChangeNotifier {
-
   final int _productPerPage = 32;
 
   bool _isInitialLoading = false;
@@ -61,7 +60,6 @@ class ProductListProvider extends ChangeNotifier {
       _errorMessage = response.errorMessage;
     }
 
-
     if (_currentPage == 1) {
       _isInitialLoading = false;
     } else {
@@ -72,7 +70,8 @@ class ProductListProvider extends ChangeNotifier {
     return isSuccess;
   }
 
-  void refreshCategoryList() { // refresh er jonno
+  void refreshCategoryList() {
+    // refresh er jonno
     _currentPage = 0;
     _lastPage = null;
     _productList.clear();
