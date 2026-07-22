@@ -1,11 +1,22 @@
+import 'package:crafty_bay/features/products/presentation/providers/add_to_cart_provider.dart';
+import 'package:crafty_bay/features/shared/presentation/widgets/center_progress_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../app/app_colors.dart';
 import '../../../../app/constants.dart';
 
-class PriceAndCardSection extends StatelessWidget {
-  const PriceAndCardSection({super.key});
+class PriceAndCardSection extends StatefulWidget {
+  const PriceAndCardSection({super.key, required this.onTapAddToCart});
+
+  final VoidCallback onTapAddToCart;
+
+  @override
+  State<PriceAndCardSection> createState() => _PriceAndCardSectionState();
+}
+
+class _PriceAndCardSectionState extends State<PriceAndCardSection> {
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +45,15 @@ class PriceAndCardSection extends StatelessWidget {
           ),
           SizedBox(
             width: 140,
-            child: FilledButton(onPressed: () {}, child: Text('Add to card')),
+            child: Consumer<AddToCartProvider>(
+              builder: (context,addToCartProvider,_) {
+                if(addToCartProvider.isLoading){
+                  return CenterProgressindicator();
+                }
+                return FilledButton(onPressed:
+                    widget.onTapAddToCart, child: Text('Add to cart'));
+              }
+            ),
           ),
         ],
       ),

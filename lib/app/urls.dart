@@ -8,4 +8,6 @@ class Urls {
   static String productListUrl(int currentPage, int productPerPage) => '$_baseUrl//products?count=$productPerPage&page=$currentPage';
   static String productDetailsUrl(String productId) =>
       '$_baseUrl/products/id/$productId';
+
+  static const String addToCartUrl = '$_baseUrl/cart';
 }

@@ -1,18 +1,43 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 
-class MainNavHolderProvider extends ChangeNotifier{
+import '../../../../app/crafty_bay_app.dart';
+import '../../../auth/presentation/providers/auth_controller.dart';
+import '../../../auth/presentation/screens/sign_in_screen.dart';
+
+class MainNavHolderProvider extends ChangeNotifier {
   int _currentIndex = 0;
-  int get currentIndex =>_currentIndex;
 
-void changeIndex(int index){
-  _currentIndex = index;
-  notifyListeners();
+  int get currentIndex => _currentIndex;
+
+
+  Future<void> changeIndex(int index) async {
+    if (index == 2 || index == 3) {
+      if (await _checkUserAuthState() == false) {
+        return;
+      }
+    }
+    _currentIndex = index;
+    notifyListeners();
+  }
+
+  void backToHome() {
+    changeIndex(0);
+  }
+
+  void navigateToCategory() {
+    changeIndex(1);
+  }
+
+  Future<bool> _checkUserAuthState() async {
+    if (await AuthController.isLoggedIn() == false) {
+      Navigator.pushNamed(
+        CraftyBayApp.navigatorkey.currentContext!,
+        SignInScreen.name,
+      );
+      return false;
+    } else {}
+    return true;
+  }
 }
 
-void backToHome(){
-  changeIndex(0);
-}
-void navigateToCategory(){
-  changeIndex(1);
-}
-}
