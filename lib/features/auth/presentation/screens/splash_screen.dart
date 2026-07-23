@@ -1,6 +1,4 @@
 import 'package:crafty_bay/features/auth/presentation/providers/auth_controller.dart';
-import 'package:crafty_bay/features/auth/presentation/screens/sign_in_screen.dart';
-import 'package:crafty_bay/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:crafty_bay/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/presentation/screens/main_navi_holder_screen.dart';
